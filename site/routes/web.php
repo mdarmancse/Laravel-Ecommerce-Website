@@ -14,3 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@HomeIndex');
+
+
+Route::get('/ShopIndex', 'ShopController@ShopIndex');
+Route::get('/ShowProductBYID/{id}', 'ShopController@ShowProductBYID');
+
+
+Route::get('/CartIndex', 'CartController@CartIndex');

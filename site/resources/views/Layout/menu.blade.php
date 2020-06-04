@@ -147,10 +147,10 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                                             <div class="dropdown-menu" aria-labelledby="karlDropdown">
-                                                <a class="dropdown-item" href="index.html">Home</a>
-                                                <a class="dropdown-item" href="shop.html">Shop</a>
+                                                <a class="dropdown-item" href="{{url('/')}}">Home</a>
+                                                <a class="dropdown-item" href="{{url('/ShopIndex')}}">Shop</a>
                                                 <a class="dropdown-item" href="product-details.html">Product Details</a>
-                                                <a class="dropdown-item" href="cart.html">Cart</a>
+                                                <a class="dropdown-item" href="{{url('/CartIndex')}}">Cart</a>
                                                 <a class="dropdown-item" href="checkout.html">Checkout</a>
                                             </div>
                                         </li>
@@ -172,4 +172,5 @@
     </header>
 
     <!-- ****** Header Area End ****** -->
+
 

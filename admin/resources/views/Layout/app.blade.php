@@ -14,13 +14,16 @@
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet" >
     <link href="{{asset('css/datatables.min.css')}}" rel="stylesheet" >
     <link href="{{asset('css/datatables-select.min.css')}}" rel="stylesheet" >
+    <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 </head>
-<body class="fix-header fix-sidebar">
+<body  class="sb-nav-fixed">
 
 @include('Layout.menu')
+
 @yield('content')
 
-
+@include('Layout.footer')
 </div>
 </div>
 
@@ -36,6 +39,8 @@
 <script type="text/javascript" src="{{asset('js/datatables-select.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/axios.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
+<script  type="text/javascript"src="{{asset('js/scripts.js')}}"></script>
+<script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 
 @yield('script')
 
