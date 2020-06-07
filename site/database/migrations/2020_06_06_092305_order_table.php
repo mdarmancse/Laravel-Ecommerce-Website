@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class NewArrivalTable extends Migration
+class OrderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class NewArrivalTable extends Migration
      */
     public function up()
     {
-        Schema::create('newarrival',function (Blueprint $table){
+        Schema::create('order',function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('image');
-            $table->string('price');
-            $table->string('description');
+            $table->bigInteger('customer_id');
+            $table->bigInteger('shipping_id');
+            $table->bigInteger('payment_id');
+            $table->float('order_total');
+            $table->tinyInteger('order_status')->default(2);
+
         });
     }
 

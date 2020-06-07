@@ -6,7 +6,7 @@
     <link rel="icon" href="{{asset('img/core-img/favicon.ico')}}">
 
     <link rel="stylesheet" href="{{asset('css/core-style.css')}}">
-    <link rel="stylesheet" href="{{asset('style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style1.css')}}">
 
 
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
@@ -17,11 +17,11 @@
 </head>
 
 <body>
-    @include('Layout.menu')
+
 
     @yield('content')
 
-    @include('Layout.footer')
+
 
 
     @yield('script')

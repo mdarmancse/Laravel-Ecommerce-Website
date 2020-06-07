@@ -18,21 +18,50 @@
                             </tr>
                             </thead>
                             <tbody>
+
+
+
+                            @php
+
+                                $items = \Cart::getContent();
+                                $cartTotalQuantity = \Cart::getTotalQuantity();
+                            $subTotal = \Cart::getSubTotal();
+                            $total = \Cart::getTotal();
+
+
+                            $total_quantity=0;
+                            $total_price=0;
+                            @endphp
+                            @foreach($items as $row)
+
                             <tr>
                                 <td class="cart_product_img d-flex align-items-center">
                                     <a href="#"><img src="img/product-img/product-9.jpg" alt="Product"></a>
-                                    <h6>Yellow Cocktail Dress</h6>
+                                    <h6>{{$row->name}}</h6>
                                 </td>
-                                <td class="price"><span>$49.88</span></td>
+                                <td class="price"><span>{{$row->price}}</span></td>
                                 <td class="qty">
+
+
                                     <div class="quantity">
-                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
-                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        <form action="{{url('/updateQty')}}" method="POST">
+                                            @csrf
+{{--                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>--}}
+                                            <input type="hidden" name="id" value="{{$row->id}}">
+{{--                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">--}}
+                                            <input type="number" name="quantity" value="{{$row->quantity}}">
+
+{{--                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>--}}
+{{--                                  --}}
+                                        </form>
                                     </div>
+
                                 </td>
-                                <td class="total_price"><span>$49.88</span></td>
+
+                                <td class="total_price"><span> {{$row->getPriceSum()}}</span></td>
                             </tr>
+
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -42,8 +71,8 @@
                             <a href="shop-grid-left-sidebar.html">Continue shooping</a>
                         </div>
                         <div class="update-checkout w-50 text-right">
-                            <a href="#">clear cart</a>
-                            <a href="#">Update cart</a>
+                            <a href="{{url('/clearCart')}}">clear cart</a>
+                            <a href="{{url('/updateCart')}}">Update cart</a>
                         </div>
                     </div>
 
@@ -94,11 +123,11 @@
                         </div>
 
                         <ul class="cart-total-chart">
-                            <li><span>Subtotal</span> <span>$59.90</span></li>
+                            <li><span>Subtotal</span> <span>{{$subTotal}}</span></li>
                             <li><span>Shipping</span> <span>Free</span></li>
-                            <li><span><strong>Total</strong></span> <span><strong>$59.90</strong></span></li>
+                            <li><span><strong>Total</strong></span> <span><strong>{{$total_price}}</strong></span></li>
                         </ul>
-                        <a href="checkout.html" class="btn karl-checkout-btn">Proceed to checkout</a>
+                        <a href="{{url('/CheckoutIndex')}}" class="btn karl-checkout-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

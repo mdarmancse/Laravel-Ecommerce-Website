@@ -8,6 +8,7 @@ use App\SubCatagoriesModel;
 use App\ProductModel;
 use Illuminate\Support\Facades\DB;
 
+
 class ShopController extends Controller
 {
     function ShopIndex(){
@@ -16,7 +17,7 @@ $data['CatagoriesData']=CatagoriesModel::with('sub_category')->get();
 
 //        $SubCatagoriesData=SubCatagoriesModel::get();
 
-       $data['ProductData']=ProductModel::all();
+       $data['ProductData']=ProductModel::get();
 
         return view('Shop',$data);
     }

@@ -151,12 +151,14 @@
                                                 <a class="dropdown-item" href="{{url('/ShopIndex')}}">Shop</a>
                                                 <a class="dropdown-item" href="product-details.html">Product Details</a>
                                                 <a class="dropdown-item" href="{{url('/CartIndex')}}">Cart</a>
-                                                <a class="dropdown-item" href="checkout.html">Checkout</a>
+                                                <a class="dropdown-item" href="{{url('/CheckoutIndex')}}">Checkout</a>
                                             </div>
                                         </li>
                                         <li class="nav-item"><a class="nav-link" href="#">Dresses</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#"><span class="karl-level">hot</span> Shoes</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{url('/RegiIndex')}}">Registration</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{url('/LoginIndex')}}">Login</a></li>
                                     </ul>
                                 </div>
                             </nav>
