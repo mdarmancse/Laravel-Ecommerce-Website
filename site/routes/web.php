@@ -32,12 +32,13 @@ Route::get('/clearCart', 'CartController@clearCart');
 Route::get('/getSubTotl', 'CartController@getSubTotl');
 
 Route::post('/updateQty', 'CartController@updateQty');
+Route::post('/insertShopping', 'CartController@insertShopping');
 
 
 
 
 Route::get('/RegiIndex', 'RegistrationController@RegiIndex');
-Route::post('/insertData', 'RegistrationController@insertData');
+Route::post('/billing-add', 'RegistrationController@customerRegister');
 
 
 
@@ -46,7 +47,13 @@ Route::get('/LoginIndex', 'LoginController@LoginIndex');
 Route::post('/onLogin', 'LoginController@onLogin');
 
 
-Route::post('/getData', 'CheckoutController@getData');
+Route::get('/getData', 'CheckoutController@getData');
+Route::post('/updateData', 'CheckoutController@updateData');
+
+
+
+
+
 
 
 

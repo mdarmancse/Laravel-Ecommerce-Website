@@ -4,41 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CustomerModel;
+use Illuminate\Support\Facades\Session;
 
 class RegistrationController extends Controller
 {
     function RegiIndex(){
-
         return view('Registration');
     }
+    function customerRegister(Request $request){
 
-    function insertData(Request $request){
+//        $result=CustomerModel::insert([
+//            'customer_name'=>$request->input('customer_name'),
+//            'email_address'=> $request->input('email_address'),
+//            'password'=>$request->input('password'),
+//            'mobile'=> $request->input('mobile'),
+//
+//        ]);
 
+        $customer=new CustomerModel();
+        $customer->customer_name = $request->input('customer_name');
+        $customer->email_address = $request->input('email_address');
+        $customer->password = $request->input('password');
+        $customer->mobile = $request->input('mobile');
+        $result=$customer->save();
 
-        $first_name= $request->input('first_name');
-        $last_name=$request->input('last_name');
-        $email_address= $request->input('email_address');
-        $shipping_email= $request->input('shipping_email');
-        $password= $request->input('password');
-        $telephone= $request->input('telephone');
-
-
-        $result=CustomerModel::insert([
-
-            'first_name'=>$first_name,
-            'last_name'=>$last_name,
-            'email_address'=>$email_address,
-            'shipping_email'=>$shipping_email,
-            'password'=>$password,
-            'telephone'=>$telephone,
-
-        ]);
        if($result==true){
-
-           return ("Registration Success");                }
+           Session::put('id',$customer->customer_id);
+           Session::put('name',$customer->customer_name);
+           Session::put('email', $customer->email_address);
+           Session::put('mobile',  $customer->mobile);
+           return redirect('/getData');
+       }
        else{
 
-         return ("Registration Failed");
+           return redirect()->back()->with("msg","Registration Failed");
        }
     }
 }

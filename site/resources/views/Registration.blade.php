@@ -11,28 +11,36 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form method="POST" action="{{url('/insertData')}}" class="register-form" id="register-form">
+                    <form method="POST" action="{{url('/billing-add')}}" class="register-form" id="register-form">
                         @csrf
 
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="first_name" id="fname" placeholder="First Name"/>
+                            <input type="text" name="customer_name" id="fname" placeholder="Name" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="country" id="fname" placeholder="Country" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="address" id="fname" placeholder="Address" />
                         </div>
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="last_name" id="lname" placeholder="Last Name"/>
+                            <input type="text" name="zip_code" id="fname" placeholder="Postal Code" />
                         </div>
+
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
                             <input type="email" name="email_address" id="email" placeholder="Your Email"/>
                         </div>
+
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="shipping_email" id="semail" placeholder="Shipping Email"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="number" name="telephone" id="telephone" placeholder="Telephone"/>
+                            <input type="number" name="mobile" id="mobile" placeholder="Telephone"/>
                         </div>
                         <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -44,7 +52,7 @@
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         </div>
                         <div class="form-group form-button">
-                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            <input class="btn btn-danger" type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                         </div>
 
                     </form>

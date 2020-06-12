@@ -15,12 +15,14 @@ class CustomerTable extends Migration
     {
         Schema::create('customer',function (Blueprint $table){
             $table->bigIncrements('customer_id');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('customer_name');
             $table->string('email_address');
             $table->string('password');
-            $table->string('telephone');
-            $table->string('shipping_email');
+            $table->string('mobile');
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('zip_code')->nullable();
+
         });
     }
 

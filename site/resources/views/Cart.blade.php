@@ -28,7 +28,7 @@
                             $subTotal = \Cart::getSubTotal();
                             $total = \Cart::getTotal();
 
-
+\Illuminate\Support\Facades\Session::put('total',$total);
                             $total_quantity=0;
                             $total_price=0;
                             @endphp
@@ -37,9 +37,9 @@
                             <tr>
                                 <td class="cart_product_img d-flex align-items-center">
                                     <a href="#"><img src="img/product-img/product-9.jpg" alt="Product"></a>
-                                    <h6>{{$row->name}}</h6>
+                                    <h6 name="name">{{$row->name}}</h6>
                                 </td>
-                                <td class="price"><span>{{$row->price}}</span></td>
+                                <td name="price" class="price"><span>{{$row->price}}</span></td>
                                 <td class="qty">
 
 
@@ -127,7 +127,7 @@
                             <li><span>Shipping</span> <span>Free</span></li>
                             <li><span><strong>Total</strong></span> <span><strong>{{$total_price}}</strong></span></li>
                         </ul>
-                        <a href="{{url('/CheckoutIndex')}}" class="btn karl-checkout-btn">Proceed to checkout</a>
+                        <a href="{{url('/RegiIndex')}}" class="btn karl-checkout-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

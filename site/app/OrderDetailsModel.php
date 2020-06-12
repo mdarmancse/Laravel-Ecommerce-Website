@@ -11,4 +11,11 @@ class OrderDetailsModel extends Model
     public $incrementing=true;
     public $keyType='int';
     public  $timestamps=false;
+
+//    function orderId(){
+//        return $this->hasmany(OrderModel::class,'order_id','id');
+//    }
+//    function productId(){
+//        return $this->hasmany(ProductModel::class,'product_id','id');
+//    }
 }

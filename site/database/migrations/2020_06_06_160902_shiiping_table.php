@@ -15,11 +15,13 @@ class ShiipingTable extends Migration
     {
         Schema::create('shipping',function (Blueprint $table){
             $table->bigIncrements('shipping_id');
-            $table->string('shipping_first_name');
-            $table->string('shipping_last_name');
-            $table->string('shipping_address');
-            $table->string('shipping_telephone');
-            $table->string('shipping_email');
+            $table->string('customer_name');
+            $table->string('email_address');
+            $table->string('password');
+            $table->string('mobile');
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('zip_code')->nullable();
         });
     }
 

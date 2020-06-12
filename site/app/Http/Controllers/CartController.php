@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\ProductModel;
+use App\OrderDetailsModel;
 use Illuminate\Http\Request;
 use Darryldecode\Cart\Cart;
 use Validator;
@@ -62,6 +63,18 @@ return redirect()->back();
         return redirect()->back();
     }
 
+
+
+    function insertShopping(Request $request){
+
+        $details=new OrderDetailsModel();
+
+        $details->product_name = $request->input('name');
+        $details->product_price = $request->input('price');
+        $details->product_sales_quantity = $request->input('quantity');
+        $details->save();
+
+    }
 
 
 
