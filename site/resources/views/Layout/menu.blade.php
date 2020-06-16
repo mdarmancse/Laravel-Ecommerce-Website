@@ -64,7 +64,9 @@
                 </li>
             </ul>
         </div>
+
     </div>
+    <a href="{{url('/LoginIndex')}}" class="btn btn-sm karl-checkout-btn">Logout</a>
 </div>
 
 <div id="wrapper">

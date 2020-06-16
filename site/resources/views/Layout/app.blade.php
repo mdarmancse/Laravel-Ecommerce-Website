@@ -24,7 +24,7 @@
     @include('Layout.footer')
 
 
-    @yield('script')
+
 
     <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
     <!-- Popper js -->
@@ -38,6 +38,8 @@
     <!-- Active js -->
     <script src="{{asset('js/active.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
+
+    @yield('script')
 
 </body>
 

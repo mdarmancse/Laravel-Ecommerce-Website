@@ -13,6 +13,8 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Price</th>
+                                <th>Color</th>
+                                <th>Size</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
                             </tr>
@@ -24,11 +26,11 @@
                             @php
 
                                 $items = \Cart::getContent();
-                                $cartTotalQuantity = \Cart::getTotalQuantity();
+    $cartTotalQuantity = \Cart::getTotalQuantity();
                             $subTotal = \Cart::getSubTotal();
                             $total = \Cart::getTotal();
 
-\Illuminate\Support\Facades\Session::put('total',$total);
+                              \Illuminate\Support\Facades\Session::put('total',$total);
                             $total_quantity=0;
                             $total_price=0;
                             @endphp
@@ -40,16 +42,38 @@
                                     <h6 name="name">{{$row->name}}</h6>
                                 </td>
                                 <td name="price" class="price"><span>{{$row->price}}</span></td>
+                                <td name="color" class="color"><span>{{$row->attributes->color}}</span></td>
+                                <form action="{{url('/updateSize')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$row->id}}">
+{{--                                <td name="size" class="size"><span>{{$row->attributes->size}}</span></td>--}}
+                                    <select name="" id="">
+                                        <option value="">{{$row->size}}</option>
+                                    </select>
+{{--                                    <input type="number" name="quantity" value="{{$row->size}}">--}}
+                                </form>
                                 <td class="qty">
 
 
                                     <div class="quantity">
                                         <form action="{{url('/updateQty')}}" method="POST">
                                             @csrf
+
+                                            <div class="form-group--number">
+                                                <input type="hidden" name="id" value="{{$row->id}}">
+                                                <input type="text" class="form-control" name="quantity" value="{{$row->quantity}}">
+                                                <input type="submit" value="upadte" class="btn btn-default">
+                                                {{--<a href="" class="btn btn-default">update</a>--}}
+                                                {{--<button class="plus"><span>+</span></button>--}}
+                                            </div>
+
+
+
+
 {{--                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>--}}
-                                            <input type="hidden" name="id" value="{{$row->id}}">
+{{--                                            <input type="hidden" name="id" value="{{$row->id}}">--}}
 {{--                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">--}}
-                                            <input type="number" name="quantity" value="{{$row->quantity}}">
+{{--                                            <input type="number" name="quantity" value="{{$row->quantity}}">--}}
 
 {{--                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>--}}
 {{--                                  --}}
@@ -125,9 +149,9 @@
                         <ul class="cart-total-chart">
                             <li><span>Subtotal</span> <span>{{$subTotal}}</span></li>
                             <li><span>Shipping</span> <span>Free</span></li>
-                            <li><span><strong>Total</strong></span> <span><strong>{{$total_price}}</strong></span></li>
+                            <li><span><strong>Total</strong></span> <span><strong>{{$total}}</strong></span></li>
                         </ul>
-                        <a href="{{url('/RegiIndex')}}" class="btn karl-checkout-btn">Proceed to checkout</a>
+                        <a href="{{url('/CheckoutIndex')}}" class="btn karl-checkout-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

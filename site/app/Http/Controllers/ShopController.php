@@ -31,4 +31,18 @@ $data['CatagoriesData']=CatagoriesModel::with('sub_category')->get();
              return view('Shop',$data);
 
     }
+
+    function modalData(Request $request){
+        $result=ProductModel::where('id',$request->id)->first();
+        return $result;
+
+    }
+    function modalColor(Request $request){
+        $result=ProductModel::where('id',$request->id)->first();
+//        $color=$result->color;
+//       $product_color=explode(',',$color);
+//        return $product_color;
+        return $result;
+
+    }
 }

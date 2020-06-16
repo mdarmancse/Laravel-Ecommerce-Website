@@ -4,7 +4,12 @@
 
 @section('content')
 
+
     <section class="shop_grid_area section_padding_100">
+
+        @php
+            $items = \Cart::getContent();
+        @endphp
 
         <div class="container">
             <div class="row">
@@ -128,22 +133,21 @@
                                     <div class="product-img">
                                         <img src="{{$ProductData->image}}" alt="">
                                         <div class="product-quicview">
-                                            <a href="#" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>
+{{--                                            <a class="hold" data-id="{{$ProductData->id}}" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>--}}
+                                            <a class="hold" data-id="{{$ProductData->id}}"><i class="ti-plus"></i></a>
                                         </div>
                                     </div>
+
                                     <!-- Product Description -->
                                     <div class="product-description">
                                         <h4 class="product-price">{{$ProductData->price}}</h4>
+                                        <h4 class="product-price">{{$ProductData->quantity}}</h4>
                                         <p>{{$ProductData->name}}</p>
                                         <!-- Add to Cart -->
                                         <a href="{{url('/addCart/'.$ProductData->id)}}" class="add-to-cart-btn">ADD TO CART</a>
                                     </div>
                                 </div>
-
                             @endforeach
-
-
-
 
                         </div>
                     </div>
@@ -154,18 +158,277 @@
 {{--                                <li class="page-item active"><a class="page-link" href="#">01</a></li>--}}
 {{--                                <li class="page-item"><a class="page-link" href="#">02</a></li>--}}
 {{--                                <li class="page-item"><a class="page-link" href="#">03</a></li>--}}
-
-
                             </ul>
                         </nav>
                     </div>
-
                 </div>
-
             </div>
         </div>
-
-
     </section>
+
+
+
+
+
+    <!--############################################   Modal #####################################################################-->
+    <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div class="modal-body">
+                    <div class="quickview_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-lg-5">
+                                    <div class="quickview_pro_img">
+                                        <span id="#image_show"></span>
+                                        {{--                                        <img class="image" src="">--}}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-7">
+                                    <div class="quickview_pro_des">
+
+                                        <h4 class="title" id="title"></h4>
+                                        <div class="top_seller_product_rating mb-15">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                        <p id="testId"></p>
+                                        <h5 class="price"><span>3000 BDT</span></h5>
+                                        <p class="description"></p>
+                                        <div class="widget color mb-70">
+                                            <h6 class="widget-title mb-30">Color</h6>
+                                            <div class="widget-desc">
+                                                <ul class="d-flex justify-content-between">
+                                                    <li  class="black"><a href="#"><span class="colour"></span></a></li>
+                                                    <li class="red"><a href="#"><span class="colour"></span></a></li>
+                                                    <li class="yellow"><a href="#"><span class="colour"></span></a></li>
+                                                    <li class="green"><a href="#"><span>(72)</span></a></li>
+                                                    <li class="teal"><a href="#"><span>(9)</span></a></li>
+                                                    <li class="cyan"><a href="#"><span>(29)</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget size mb-50">
+                                            <h6 class="widget-title mb-30">Size</h6>
+                                            <div class="tableX widget-desc">
+                                                <ul class="tableChange d-flex justify-content-between">
+
+                                                    <li><a id="size1" href="#"></a></li>
+                                                    <li><a id="size2" href="#"></a></li>
+                                                    <li><a id="size3" href="#"></a></li>
+                                                    {{--                                                    <li><a  href="#">L</a></li>--}}
+                                                    {{--                                                    <li><a  href="#">XL</a></li>--}}
+                                                    {{--                                                    <li><a  href="#">XL</a></li>--}}
+                                                    {{--                                                    <li><a  href="#">XL</a></li>--}}
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- Add to Cart Form -->
+                                    <div class="cart">
+                {{--                                        <div class="quantity">--}}
+                {{--                                            <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>--}}
+
+                {{--                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">--}}
+
+                {{--                                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>--}}
+                {{--                                        </div>--}}
+{{--                                        <form action="{{url('/updateQty')}}" method="POST">--}}
+{{--                                            @csrf--}}
+                                        <div class="">
+                                                <input type="text" name="id" class="IDVAL">
+                                              <input type="number" name="quantity" class="quantity">
+
+                                        </div>
+{{--                                            <a href="{{url('/addCart/'.$ProductData->id)}}" class="add-to-cart-btn IDVAL" >ADD TO CART</a>--}}
+                                        <button type="submit" class="cart-submit">Add to cart</button>
+{{--                                       </form>--}}
+                                        <!-- Wishlist -->
+                                        <div class="modal_pro_wishlist">
+                                            <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
+                                        </div>
+                                        <!-- Compare -->
+                                        <div class="modal_pro_compare">
+                                            <a href="compare.html" target="_blank"><i class="ti-stats-up"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="share_wf mt-30">
+                                        <p>Share With Friend</p>
+                                        <div class="_icon">
+                                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ****** Quick View Modal Area End ****** -->
+
+
+
+
+
+
+@endsection
+@section('script')
+
+    <script type="text/javascript">
+
+        $(document).on('click', '.hold', function () {
+
+            var id=$(this).data('id');
+            $('#testId').html(id);
+            modalData(id);
+            // sizeX(id);
+
+            $("#quickview").modal('show');
+
+
+        });
+
+        function modalData(id) {
+
+            $('.IDVAL').val(id);
+            axios.post('/modalData', {
+                id: id
+            })
+                .then(function (response) {
+
+                    var jsonData = response.data;
+
+                    $('.title').html(jsonData.name);
+                    $('#image_show').html("<img src="+jsonData.image+"/>");
+                    $('.price').html(jsonData.price);
+                    $('.description').html(jsonData.description);
+                    $('.quantity').val(jsonData.quantity);
+                    $('.colour').html(jsonData.colour);
+
+                    var exploded = jsonData.size.split(',');
+                    // $.each(exploded, function (i) {
+                    //     $('<ul>').html(
+                    //         "<li>" + exploded[i].exploded[0] + "</li>"
+                    //         // "<td ><a class='arrivalDelete' data-id=" + jsonData[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
+                    //     ).appendTo('.tableX');
+                    // })
+                    // var product_code=exploded[0];
+                    // var product_code1=exploded[1];
+
+                    $('#size1').html(exploded[0]);
+                    $('#size2').html(exploded[1]);
+                    $('#size3').html(exploded[2]);
+
+                        // alert(jsonData[0].name)
+
+                })
+        }
+
+
+
+        // function sizeX(id) {
+        //     axios.post('/modalColor', {
+        //         id: id
+        //     })
+        //         .then(function (response) {
+        //             $('#tableX').empty();
+        //             var jsonData = response.data;
+        //             $.each(jsonData, function (i) {
+        //                 $('<ul>').html(
+        //                     "<li>" + jsonData[i].size + "</li>"
+        //                     // "<td ><a class='arrivalDelete' data-id=" + jsonData[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
+        //                 ).appendTo('.tableX');
+        //             });
+        //
+        //         })
+        // }
+
+//
+// $(document).on('change','.tableChange',function () {
+//
+//         function onChange(id) {
+//             axios.post('/modalColor', {
+//                 id: id
+//             })
+//                 .then(function (response) {
+//                     $('#tableX').empty();
+//                     var jsonData = response.data;
+//                     $.each(jsonData, function (i) {
+//                         $('<ul>').html(
+//                             "<li>" + jsonData[i].size + "</li>"
+//                             // "<td ><a class='arrivalDelete' data-id=" + jsonData[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
+//                         ).appendTo('.tableX');
+//                     });
+//
+//                 })
+//
+//         }
+// })
+
+        $(document).on('click', '.cart-submit', function () {
+
+            var size1=$('#size1').html();
+            var size2=$('#size2').html();
+            var size3=$('#size3').html();
+            if(size1.selected()=='L'){
+                var size='L'
+                var qty=$('.quantity').val();
+                var idx=$('.IDVAL').val();
+                addToCart(idx,qty,size)
+            }
+            else if(size2.selected()=='xl'){
+                var size='xl'
+                var qty=$('.quantity').val();
+                var idx=$('.IDVAL').val();
+                addToCart(idx,qty,size)
+            }
+            else if(size3.selected()=='M'){
+                var size='M'
+                var qty=$('.quantity').val();
+                var idx=$('.IDVAL').val();
+                addToCart(idx,qty,size)
+            }else{
+                var qty=$('.quantity').val();
+                var idx=$('.IDVAL').val();
+                addToCart(idx,qty,size)
+            }
+
+        })
+
+     function addToCart(idx,qty,size) {
+
+         axios.post('/addCartModal', {
+             id: idx,
+             qty:qty,
+             size:size
+         })
+             .then(function (response) {
+
+if (response.data){
+    $("#quickview").modal('hide');
+    window.location='/CartIndex'
+
+}
+
+             })
+     }
+    </script>
+
 @endsection
 

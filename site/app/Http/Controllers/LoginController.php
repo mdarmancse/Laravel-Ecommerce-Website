@@ -12,6 +12,13 @@ class LoginController extends Controller
         return view('Login');
     }
 
+    function onLogout(Request $request){
+        $request->session()->flush();
+        return redirect('/LoginIndex');
+
+
+    }
+
     function onLogin(Request $request){
 
         $email=$request->input('email_address');
