@@ -34,9 +34,26 @@ $data['CatagoriesData']=CatagoriesModel::with('sub_category')->get();
 
     function modalData(Request $request){
         $result=ProductModel::where('id',$request->id)->first();
-        return $result;
+        $size=$result->size;
+        $product_size=explode(',',$size);
+        $color=$result->colour;
+        $product_color=explode(',',$color);
+        echo json_encode(array($result,$product_size,$product_color),JSON_FORCE_OBJECT);
+       // return ;
 
     }
+//    function modalData2(Request $request){
+//        $result=ProductModel::where('id',$request->id)->first();
+//        $size=$result->size;
+//        $product_size=explode(',',$size);
+//        return json_encode($product_size,JSON_FORCE_OBJECT);
+//      //  return $size;
+//
+//    }
+
+
+
+
     function modalColor(Request $request){
         $result=ProductModel::where('id',$request->id)->first();
 //        $color=$result->color;

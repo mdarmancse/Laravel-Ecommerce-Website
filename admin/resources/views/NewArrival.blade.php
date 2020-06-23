@@ -180,7 +180,7 @@
                     $('#arrivaLtable').empty();
                     var jsonData = response.data;
 
-                    $.each(jsonData, function(i) {
+                    $.each(jsonData, function(i,v) {
                         $('<tr>').html(
 
                             "<td class='th-sm'><img class='table-img' src=" + jsonData[i].image + "></td>" +

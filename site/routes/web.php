@@ -10,6 +10,7 @@ Route::get('/ShopIndex', 'ShopController@ShopIndex');
 Route::get('/ShowProductBYID/{id}', 'ShopController@ShowProductBYID');
 //Route::get('/modalData/{id}', 'ShopController@modalData');
 Route::post('/modalData', 'ShopController@modalData');
+Route::post('/modalData2', 'ShopController@modalData2');
 Route::post('/modalColor', 'ShopController@modalColor');
 
 

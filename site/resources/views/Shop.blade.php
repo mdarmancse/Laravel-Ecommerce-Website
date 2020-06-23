@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     <section class="shop_grid_area section_padding_100">
 
         @php
@@ -28,7 +27,9 @@
                                                 <a href="{{$Category->id}}">{{$Category->name}}</a>
                                                 @foreach($Category->sub_category as $SubCat)
                                                     <ul class="sub-menu collapse show" id="women2">
-                                                        <li><a href="{{url('ShowProductBYID/'.$SubCat->id)}}">{{$SubCat->sub_cat_name}}</a></li>
+                                                        <li>
+                                                            <a href="{{url('ShowProductBYID/'.$SubCat->id)}}">{{$SubCat->sub_cat_name}}</a>
+                                                        </li>
                                                     </ul>
                                                 @endforeach
                                             </li>
@@ -44,10 +45,14 @@
                             <h6 class="widget-title mb-30">Filter by Price</h6>
                             <div class="widget-desc">
                                 <div class="slider-range">
-                                    <div data-min="0" data-max="3000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="0" data-value-max="1350" data-label-result="Price:">
+                                    <div data-min="0" data-max="3000" data-unit="$"
+                                         class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                         data-value-min="0" data-value-max="1350" data-label-result="Price:">
                                         <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all"
+                                              tabindex="0"></span>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all"
+                                              tabindex="0"></span>
                                     </div>
                                     <div class="range-price">Price: 0 - 1350</div>
                                 </div>
@@ -122,19 +127,19 @@
                 </div>
 
 
-
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop_grid_product_area">
                         <div class="row">
 
                             @foreach($ProductData as $ProductData)
-                                <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
+                                <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig"
+                                     data-wow-delay="0.2s">
                                     <!-- Product Image -->
                                     <div class="product-img">
                                         <img src="{{$ProductData->image}}" alt="">
                                         <div class="product-quicview">
-{{--                                            <a class="hold" data-id="{{$ProductData->id}}" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>--}}
-                                            <a class="hold" data-id="{{$ProductData->id}}"><i class="ti-plus"></i></a>
+                                            <a class="detailModalShow" data-id="{{$ProductData->id}}"><i
+                                                    class="ti-plus"></i></a>
                                         </div>
                                     </div>
 
@@ -144,7 +149,8 @@
                                         <h4 class="product-price">{{$ProductData->quantity}}</h4>
                                         <p>{{$ProductData->name}}</p>
                                         <!-- Add to Cart -->
-                                        <a href="{{url('/addCart/'.$ProductData->id)}}" class="add-to-cart-btn">ADD TO CART</a>
+                                        <a href="{{url('/addCart/'.$ProductData->id)}}" class="add-to-cart-btn">ADD TO
+                                            CART</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -155,9 +161,9 @@
                     <div class="shop_pagination_area wow fadeInUp" data-wow-delay="1.1s">
                         <nav aria-label="Page navigation">
                             <ul class="pagination pagination-sm">
-{{--                                <li class="page-item active"><a class="page-link" href="#">01</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#">02</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#">03</a></li>--}}
+                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                <li class="page-item"><a class="page-link" href="#">03</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -165,9 +171,6 @@
             </div>
         </div>
     </section>
-
-
-
 
 
     <!--############################################   Modal #####################################################################-->
@@ -184,13 +187,11 @@
                             <div class="row">
                                 <div class="col-12 col-lg-5">
                                     <div class="quickview_pro_img">
-                                        <span id="#image_show"></span>
-                                        {{--                                        <img class="image" src="">--}}
+
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-7">
                                     <div class="quickview_pro_des">
-
                                         <h4 class="title" id="title"></h4>
                                         <div class="top_seller_product_rating mb-15">
                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -204,55 +205,40 @@
                                         <p class="description"></p>
                                         <div class="widget color mb-70">
                                             <h6 class="widget-title mb-30">Color</h6>
-                                            <div class="widget-desc">
-                                                <ul class="d-flex justify-content-between">
-                                                    <li  class="black"><a href="#"><span class="colour"></span></a></li>
-                                                    <li class="red"><a href="#"><span class="colour"></span></a></li>
-                                                    <li class="yellow"><a href="#"><span class="colour"></span></a></li>
-                                                    <li class="green"><a href="#"><span>(72)</span></a></li>
-                                                    <li class="teal"><a href="#"><span>(9)</span></a></li>
-                                                    <li class="cyan"><a href="#"><span>(29)</span></a></li>
-                                                </ul>
+                                            <div class="d-flex widget-desc colorX">
+                                                {{--                                                <ul class="d-flex justify-content-between">--}}
+                                                {{--                                                    <li class="black"><a href="#"><span class="color"></span></a></li>--}}
+                                                {{--                                                    <li class="red"><a href="#"><span class="color"></span></a></li>--}}
+                                                {{--                                                    <li class="yellow"><a href="#"><span class="color"></span></a></li>--}}
+                                                {{--                                                    <li class="green"><a href="#"><span>(72)</span></a></li>--}}
+                                                {{--                                                    <li class="teal"><a href="#"><span>(9)</span></a></li>--}}
+                                                {{--                                                    <li class="cyan"><a href="#"><span>(29)</span></a></li>--}}
+                                                {{--                                                </ul>--}}
                                             </div>
                                         </div>
 
                                         <div class="widget size mb-50">
                                             <h6 class="widget-title mb-30">Size</h6>
-                                            <div class="tableX widget-desc">
-                                                <ul class="tableChange d-flex justify-content-between">
-
-                                                    <li><a id="size1" href="#"></a></li>
-                                                    <li><a id="size2" href="#"></a></li>
-                                                    <li><a id="size3" href="#"></a></li>
-                                                    {{--                                                    <li><a  href="#">L</a></li>--}}
-                                                    {{--                                                    <li><a  href="#">XL</a></li>--}}
-                                                    {{--                                                    <li><a  href="#">XL</a></li>--}}
-                                                    {{--                                                    <li><a  href="#">XL</a></li>--}}
-
-                                                </ul>
+                                            <div class="widget-desc">
+                                                {{--                                                <ul class="tableChange d-flex justify-content-between">--}}
+                                                {{--                                                    <li><a href="#">L</a></li>--}}
+                                                {{--                                                    <li><a href="#">XL</a></li>--}}
+                                                {{--
+                                                {{--                                                </ul>--}}
+                                                <select id="size_id" class="form-control select2"></select>
                                             </div>
                                         </div>
-
                                     </div>
                                     <!-- Add to Cart Form -->
                                     <div class="cart">
-                {{--                                        <div class="quantity">--}}
-                {{--                                            <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>--}}
-
-                {{--                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">--}}
-
-                {{--                                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>--}}
-                {{--                                        </div>--}}
-{{--                                        <form action="{{url('/updateQty')}}" method="POST">--}}
-{{--                                            @csrf--}}
-                                        <div class="">
-                                                <input type="text" name="id" class="IDVAL">
-                                              <input type="number" name="quantity" class="quantity">
-
+                                        <div class="quantity">
+                                            <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                            <input type="hidden" name="id" class="IDVAL">
+                                            <input type="number" value="1" class="qty qty-text" id="qty" step="1" min="1" max="12">
+                                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                         </div>
-{{--                                            <a href="{{url('/addCart/'.$ProductData->id)}}" class="add-to-cart-btn IDVAL" >ADD TO CART</a>--}}
                                         <button type="submit" class="cart-submit">Add to cart</button>
-{{--                                       </form>--}}
+
                                         <!-- Wishlist -->
                                         <div class="modal_pro_wishlist">
                                             <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
@@ -262,6 +248,7 @@
                                             <a href="compare.html" target="_blank"><i class="ti-stats-up"></i></a>
                                         </div>
                                     </div>
+
 
                                     <div class="share_wf mt-30">
                                         <p>Share With Friend</p>
@@ -283,27 +270,18 @@
     <!-- ****** Quick View Modal Area End ****** -->
 
 
-
-
-
-
 @endsection
+
 @section('script')
 
     <script type="text/javascript">
 
-        $(document).on('click', '.hold', function () {
-
+        $(document).on('click','.detailModalShow', function () {
             var id=$(this).data('id');
             $('#testId').html(id);
             modalData(id);
-            // sizeX(id);
-
             $("#quickview").modal('show');
-
-
         });
-
         function modalData(id) {
 
             $('.IDVAL').val(id);
@@ -311,123 +289,59 @@
                 id: id
             })
                 .then(function (response) {
-
-                    var jsonData = response.data;
-
+                    var jsonData = response.data[0];
                     $('.title').html(jsonData.name);
-                    $('#image_show').html("<img src="+jsonData.image+"/>");
+                    //    $('.quickview_pro_img').html('<img src="' + jsonData.image + '" />');
+                    $('.quickview_pro_img').html("<img src='"+jsonData.image+"'/>");
                     $('.price').html(jsonData.price);
                     $('.description').html(jsonData.description);
                     $('.quantity').val(jsonData.quantity);
-                    $('.colour').html(jsonData.colour);
+                    //  $('.color').html(jsonData.colour);
 
-                    var exploded = jsonData.size.split(',');
-                    // $.each(exploded, function (i) {
-                    //     $('<ul>').html(
-                    //         "<li>" + exploded[i].exploded[0] + "</li>"
-                    //         // "<td ><a class='arrivalDelete' data-id=" + jsonData[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
-                    //     ).appendTo('.tableX');
-                    // })
-                    // var product_code=exploded[0];
-                    // var product_code1=exploded[1];
+                    var jsonData2 = response.data[1];
+                    var html = '<option value="">Select Product Size</option>';
+                    $.each(jsonData2, function (i,v) {
+                        html+= "<option value="+v+">"+ v + "</option>";
+                    });
+                    $("#size_id").html(html);
 
-                    $('#size1').html(exploded[0]);
-                    $('#size2').html(exploded[1]);
-                    $('#size3').html(exploded[2]);
+                    var jsonData3 = response.data[2];
+                    $(".colorX").empty();
+                    $.each(jsonData3, function (i, v) {
+                        $("<ul class='mr-3'>").html(
+                            "<li class='"+v+"'><a href='#' data-id='"+v+"'></a></li>"
+                        ).appendTo('.colorX')
+                    })
+                })
+        }
 
-                        // alert(jsonData[0].name)
+        $(document).on('click', '.cart-submit', function () {
+            var qty = $('.qty').val();
+            var idx = $('.IDVAL').val();
+            var size=$('#size_id').val();
+            addToCart(idx, qty, size)
+        })
 
+        function addToCart(idx, qty, size) {
+
+            axios.post('/addCartModal', {
+                id: idx,
+                qty: qty,
+                size: size
+            })
+                .then(function (response) {
+                    if (response.data) {
+                        $("#quickview").modal('hide');
+                        window.location = '/CartIndex'
+                    }
                 })
         }
 
 
+        // var size=$('.tableZ').html(jsonData.size);
+        // var exploded = jsonData.size.split(',');
+        ///https://www.itsolutionstuff.com/post/how-to-convert-php-array-to-json-object-with-exampleexample.html
 
-        // function sizeX(id) {
-        //     axios.post('/modalColor', {
-        //         id: id
-        //     })
-        //         .then(function (response) {
-        //             $('#tableX').empty();
-        //             var jsonData = response.data;
-        //             $.each(jsonData, function (i) {
-        //                 $('<ul>').html(
-        //                     "<li>" + jsonData[i].size + "</li>"
-        //                     // "<td ><a class='arrivalDelete' data-id=" + jsonData[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
-        //                 ).appendTo('.tableX');
-        //             });
-        //
-        //         })
-        // }
-
-//
-// $(document).on('change','.tableChange',function () {
-//
-//         function onChange(id) {
-//             axios.post('/modalColor', {
-//                 id: id
-//             })
-//                 .then(function (response) {
-//                     $('#tableX').empty();
-//                     var jsonData = response.data;
-//                     $.each(jsonData, function (i) {
-//                         $('<ul>').html(
-//                             "<li>" + jsonData[i].size + "</li>"
-//                             // "<td ><a class='arrivalDelete' data-id=" + jsonData[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
-//                         ).appendTo('.tableX');
-//                     });
-//
-//                 })
-//
-//         }
-// })
-
-        $(document).on('click', '.cart-submit', function () {
-
-            var size1=$('#size1').html();
-            var size2=$('#size2').html();
-            var size3=$('#size3').html();
-            if(size1.selected()=='L'){
-                var size='L'
-                var qty=$('.quantity').val();
-                var idx=$('.IDVAL').val();
-                addToCart(idx,qty,size)
-            }
-            else if(size2.selected()=='xl'){
-                var size='xl'
-                var qty=$('.quantity').val();
-                var idx=$('.IDVAL').val();
-                addToCart(idx,qty,size)
-            }
-            else if(size3.selected()=='M'){
-                var size='M'
-                var qty=$('.quantity').val();
-                var idx=$('.IDVAL').val();
-                addToCart(idx,qty,size)
-            }else{
-                var qty=$('.quantity').val();
-                var idx=$('.IDVAL').val();
-                addToCart(idx,qty,size)
-            }
-
-        })
-
-     function addToCart(idx,qty,size) {
-
-         axios.post('/addCartModal', {
-             id: idx,
-             qty:qty,
-             size:size
-         })
-             .then(function (response) {
-
-if (response.data){
-    $("#quickview").modal('hide');
-    window.location='/CartIndex'
-
-}
-
-             })
-     }
     </script>
 
 @endsection
