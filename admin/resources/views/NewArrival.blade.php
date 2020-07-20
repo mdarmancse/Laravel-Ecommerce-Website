@@ -167,7 +167,7 @@
 
 <script type="text/javascript">
 
-    getArrivalData()
+    getArrivalData();
     function getArrivalData() {
         axios.get('/getArrivalData')
             .then(function(response) {

@@ -25,6 +25,7 @@
                                         @foreach($CatagoriesData as $Category)
                                             <li data-toggle="collapse" data-target="#women2">
                                                 <a href="{{$Category->id}}">{{$Category->name}}</a>
+{{--                                        //    {{$Category->sub_category->name}}</a>--}}
                                                 @foreach($Category->sub_category as $SubCat)
                                                     <ul class="sub-menu collapse show" id="women2">
                                                         <li>

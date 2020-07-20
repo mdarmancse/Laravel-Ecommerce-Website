@@ -12,8 +12,11 @@ class CatagoriesModel extends Model
     public $keyType='int';
     public  $timestamps=false;
 
+
+   // hasMany = primarry key to ForeignKey
+
     function sub_category(){
-        return $this->hasmany(SubCatagoriesModel::class,'category_id','id');
+        return $this->hasOne(SubCatagoriesModel::class,'category_id','id');
     }
 
 }

@@ -44,8 +44,11 @@
                     <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav" >
                             <ul id="sidebarnav">
-                            <li><a class="nav-link" href="{{url('/visitors')}}"><span> <i class="fas fa-users"></i> </span>    Visitors</a></li>
+                            <li><a class="nav-link" href="{{url('/visitors')}}"> Visitors</a></li>
                            <li><a class="nav-link" href="{{url('/ArrivalIndex')}}">New Arrival</a></li>
+                           <li><a class="nav-link" href="{{url('/CategoriesIndex')}}">Category</a></li>
+                           <li><a class="nav-link" href="{{url('/SubCategoriesIndex')}}">Subcategory</a></li>
+                           <li><a class="nav-link" href="{{url('/ProductsIndex')}}">Products</a></li>
                             </ul>
                         </nav>
                     </div>

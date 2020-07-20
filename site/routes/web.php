@@ -50,9 +50,16 @@ Route::post('/updateData', 'CheckoutController@updateData');
 
 
 
+Route::get('/posts', 'TenderController@TenderIndex');
+Route::get('/posts/{post}', 'TenderController@Show');
 
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 

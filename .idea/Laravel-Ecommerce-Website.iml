@@ -14,6 +14,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/erusev/parsedown" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/facade/flare-client-php" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/facade/ignition" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/facade/ignition-contracts" />
@@ -27,6 +28,8 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/laravelista/comments" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/mockery/mockery" />
@@ -71,6 +74,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/site/vendor/spatie/laravel-honeypot" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/site/vendor/symfony/css-selector" />

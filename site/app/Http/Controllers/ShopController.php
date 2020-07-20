@@ -13,7 +13,7 @@ class ShopController extends Controller
 {
     function ShopIndex(){
 
-$data['CatagoriesData']=CatagoriesModel::with('sub_category')->get();
+$data['CatagoriesData']=CatagoriesModel::with(['sub_category'])->get();
 
 //        $SubCatagoriesData=SubCatagoriesModel::get();
 
